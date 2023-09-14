@@ -11,10 +11,10 @@ export default function SignUpForm(setToken) {
     try {
       const response = await fetch(APIURL, {
         method: "POST",
-        body: JSON.stringify({userName: userName, password: password}),
         headers: {
-          "Content-Type" : "application/json"
-        }
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({username: userName, password: password}),
       });
       const result = await response.json();
       console.log(result.token);
@@ -29,10 +29,10 @@ export default function SignUpForm(setToken) {
   <h2>Sign Up or else.</h2> {error && <p>{error}</p>}
   <form onSubmit={handleSubmit}>
     <label>Username:{""} <input value={userName} onChange={(e) => setuserName(e.target.value)} />
-    </label>
+    </label><br />
     <label>Password{""} <input type="password" value={password} onChange={(e) => setpassword(e.target.value)} />
-    </label>
-    <button type="submit">Submit</button>
+    </label><br />
+    <button>Submit!!!!!!!!!!</button>
   </form>
   </>
   )
