@@ -5,7 +5,7 @@ export default function Authenticate({token}) {
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   async function handleClick() {
-    console.log(handleClick);
+    console.log("handle click works i think");
     try {
       const response = await fetch(APIURL, {
         method: "GET",
@@ -16,8 +16,9 @@ export default function Authenticate({token}) {
       });
       const result = await response.json();
       console.log('it worked, thank god it worked');
-      const userName = result.data.username;
-      setSuccessMessage(`${result.message} Welcom ${userName}`);
+      const username = result.data.username;
+      setSuccessMessage(`${result.message} Welcome, ${userName}!`);
+      return (result);
     } catch (error) {
       setError(error.message)
     }
